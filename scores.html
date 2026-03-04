@@ -28,8 +28,8 @@
     </div>
 </body>
 <script>
-    let won=sessionStorage.getItem("won")
-    let lost=sessionStorage.getItem("lost")
+    let won=sessionStorage.getItem("won")||0
+    let lost=sessionStorage.getItem("lost")||0
     display.innerHTML=`
     <div class="flex items-center justify-center">
     <p class="text-center mt-10 text-xl font-bold  px-3 py-3" style="background-color: rgb(153, 241, 19);">Your Score :<span>${won}</span></p>
