@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Game Zone</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="bg flex items-center justify-center ">
+       <div class="bg-white shadow-2xl" style="width: 500px; height: 350px; border-radius: 10px;" >
+          <h2 class="text-center font-bold text-2xl mt-10" >Score Box</h2>
+          <div id="display">
+          
+          </div>
+          <div id="winner">
+            
+        </div>
+        <div id="fail">
+
+        </div>
+        <div id="tie"></div>
+       </div>
+    </div>
+</body>
+<script>
+    let won=sessionStorage.getItem("won")
+    let lost=sessionStorage.getItem("lost")
+    display.innerHTML=`
+    <div class="flex items-center justify-center">
+    <p class="text-center mt-10 text-xl font-bold  px-3 py-3" style="background-color: rgb(153, 241, 19);">Your Score :<span>${won}</span></p>
+    </div>
+    <div class="flex items-center justify-center">
+          <p class="text-center mt-10 text-xl font-bold px-3 py-3" style="background-color: rgb(153, 241, 19);">Computer Score : <span>${lost}</span></p>
+          </div>
+    `
+    if(won>lost){
+        winner.innerHTML=`
+        <p class="text-center text-xl font-bold mt-5">You won &#127881; &#129395;</p>
+        `
+    }else if(won<lost){
+        fail.innerHTML=`
+        <p class="text-center text-xl font-bold mt-5">Ooops! Computer wins this time </p>
+        `
+    }else{
+         tie.innerHTML=`
+         <p class="text-center text-xl font-bold mt-5">Match tied !</p>
+         `
+    }
+</script>
+</html>
